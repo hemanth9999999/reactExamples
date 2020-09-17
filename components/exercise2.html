@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>second reaction</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+			class TableBuild extends React.Component {
+			
+				render() { 
+					
+					return <div>
+							<h1>{this.props.title}</h1>
+							<table>
+							<thead>
+								<tr>
+									<td>Car</td>
+									<td>Model</td>
+									<td>Year</td>
+								</tr>
+							</thead>
+							<tbody>
+								{tableArray.map(tabRow => <RowBuild tabRow={tabRow} />)}
+							</tbody>
+							</table>
+					       </div>
+				}
+			
+			} 
+			
+			class RowBuild extends React.Component{
+			
+					render() { 
+							var TabRow = this.props.tabRow
+							return <tr>
+									<td>{TabRow.car} </td>
+									<td>{TabRow.model} </td>
+									<td>{TabRow.year} </td>
+								   </tr>
+					
+					}
+			
+			
+			}
+			
+			var tableArray = [{"car":"bmw","model":"x12" ,"year":2020 }, {"car":"Tesla" , "model" :"3" ,"year" :2019 }] ;
+			
+			ReactDOM.render(<TableBuild title="Car Details" /> ,document.getElementById("root"));
+	</script>
+</body>
+</html>

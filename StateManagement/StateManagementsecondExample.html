@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>StateMangementSecondEx</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+</head>
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+	
+	var INITIAL_STATE = [{name: "Hemanth" , city: "phoenix"} , {name: "Silajit" , city: "califonia"} , {name: "dheeraj", city: "Houston"}]
+	
+			class StateManagementEx extends React.Component{
+			
+			
+			
+				constructor(props){ 
+						super(props)
+						this.state={students:INITIAL_STATE ,
+							studentsClone:INITIAL_STATE
+						}
+				}
+			
+			
+				HandleFilter(event){ 
+				
+				var searchStr=event.target.value ;
+				var newState=[]
+				for(var stateVar of this.state.students) { 
+				
+					if ( stateVar.name.toLowerCase().indexOf(event.target.value.toLowerCase()) >= 0 || stateVar.city.toLowerCase().indexOf(event.target.value.toLowerCase()) >= 0 ) { 
+							newState.push(stateVar)
+					
+					}
+					
+				
+				}
+						this.setState({studentsClone:newState});
+				
+				}
+
+				
+			
+				render(){ 
+						return <div>
+									<input type="text" placeholder="search by name or city"  onChange={this.HandleFilter.bind(this)}/>
+									<table>
+									<thead>
+										<tr>
+										<td>Name</td>
+										<td>City</td>
+										</tr>
+									</thead>
+									<tbody>
+										{this.state.studentsClone.map(s => <tr>
+																	<td>{s.name}</td>																	  
+																	 <td>{s.city}</td>
+																	 </tr>)}
+									</tbody>
+									</table>
+								</div>
+				
+				}
+				
+			}
+			ReactDOM.render(<StateManagementEx/>,document.getElementById("root"));
+	</script>
+</body>
+</html>

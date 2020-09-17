@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>second reaction</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+	
+	
+			class TableEx extends React.Component{
+			
+			render(){ 
+				
+				var arrVarTable = [{"name" : "Hemanth" , "age" : "34" , "height" : "5.4" } , {"name" : "Arch" , "age" : "32" , "height" : "4.9" } ] ;
+				return <div>
+						<h1>{this.props.title}</h1>
+						<table>
+						<thead>
+							<tr>
+								<td>Name</td>
+								<td>Age</td>
+								<td>Height</td>
+							</tr>
+						</thead>
+						<tbody>
+									{arrVarTable.map(arrVarRow => <RowEx row={arrVarRow}/>)}
+						</tbody>
+						</table>
+					   </div>
+				
+			}
+			
+		} 
+			
+	class RowEx extends React.Component{ 
+	
+			render() { 
+			var row = this.props.row
+				return <tr>
+									<td>{row.name} </td> 
+									<td>{row.age} </td> 
+									<td>{row.height} </td> 
+				</tr>
+
+			}
+
+	}
+			
+			ReactDOM.render(<div><TableEx title="Your Table"/></div>,document.getElementById("root"));
+	</script>
+</body>
+</html>

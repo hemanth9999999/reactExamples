@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>second reaction</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+			class Login extends React.Component{
+			
+			handleClick(){
+				
+				console.log("fname= " + document.getElementById("Fname").value  )
+				console.log("lname= " + document.getElementById("lname").value  )
+				alert("password is " +  document.getElementById("pword").value )
+			}
+			
+			
+			render(){ 
+				return <div>
+				<label>First Name </label>
+				<input type="text" id="Fname"/><br/><br/>
+				<label>Last Name </label>
+				<input type="text" id="lname"/><br/><br/>
+				<label>Password </label>
+				<input type="password" id="pword"/><br/><br/>
+				<input type="button" value="Submit" onClick={this.handleClick.bind(this)} />
+				</div>
+				
+			}
+			
+			
+			}
+			
+			
+			ReactDOM.render(<div><Login/></div>,document.getElementById("root"));
+	</script>
+</body>
+</html>

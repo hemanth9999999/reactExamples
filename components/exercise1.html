@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>second reaction</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+			class OrderRenderer extends React.Component {
+			
+				render() { 
+					
+					return <div>
+							<h1>{this.props.title}</h1>
+							Id : {this.props.id}<br/>
+							Name : {this.props.name}<br/>
+							Price : {this.props.price}<br/>
+							Adress : <ShippingAdressRenderer address={this.props.address} /><br/>
+							PayInfo :<PayInfoRenderer payInfo={this.props.payInfo} /><br/>
+							</div>
+				}
+			
+			} 
+			
+			class ShippingAdressRenderer extends React.Component {
+					render() {
+						var Saddress=this.props.address ;
+						return <div>
+								City : {Saddress.city} <br/>
+								State : {Saddress.state} <br/>
+								Street : {Saddress.street} <br/>
+								Zip code : {Saddress.zip} <br/>
+							   </div>
+					
+					
+					}
+			
+			
+			}
+			
+			class PayInfoRenderer extends React.Component{
+					render() { 
+					var PInfo = this.props.payInfo
+					return <div>
+								Name On Card  : {PInfo.name} <br/>
+								Card no : {PInfo.cardno} <br/>
+						   </div>
+					
+					}
+			
+			
+			
+			}
+			
+			var shippingAddress ={
+			"city" : "phoenix" , 
+			"state" : "AZ",
+			"street" : "1005 E paseo Way",
+			"zip" : 85042
+			}
+			
+			var payInfo = { 
+			"name" : "Hemanth Shekar",
+			"cardno" : "89127869825185"
+			}
+			
+			
+			ReactDOM.render(<OrderRenderer title="Order details"  id="1234" name="Hemanth" price="99" address={shippingAddress} payInfo={payInfo} /> ,document.getElementById("root"));
+	</script>
+</body>
+</html>

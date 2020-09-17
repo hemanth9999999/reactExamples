@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>second reaction</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+			class MapEx extends React.Component{
+			
+			render(){ 
+				var arrVarList = ["react" , "java" , "spring" , "spark Streaming" ] 
+				
+				return <div>
+							<h1>{this.props.Heading}</h1>
+							<ul>
+							{arrVarList.map(arrVar => <li>{arrVar}</li>)}
+							</ul>
+						</div>
+				
+			}
+			
+			}
+			
+			
+			ReactDOM.render(<div><MapEx Heading="Your Courses"/></div>,document.getElementById("root"));
+	</script>
+</body>
+</html>

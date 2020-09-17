@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>StateMangementSecondEx</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+</head>
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+	
+	var INITIAL_STATE = [{car: "BMW" , version: "x2" ,year :"2020"}]
+			
+			class StateManageExercise extends React.Component{
+			
+					constructor(props){
+						super(props)
+						this.state={cars:INITIAL_STATE}				
+					}
+						
+					
+					UpdateCars(){
+					
+					var oldCar = this.state.cars
+					var HondaCar=[{car: "Honda" , version: "Civic" ,year :"2020"}]
+					this.setState({cars:HondaCar.concat(oldCar)})
+					
+					
+					}
+					
+					render(){ 
+					
+					var tableStyle={
+					
+					borderColor:"black",
+					borderWidth: 150,
+					width:10
+					}
+					
+					var thStyle={ 
+					height : 10,
+					textAlign:"center"
+					}
+					
+					var tdStyle={
+					height : 3,
+					textAlign : "center"
+					
+					}
+						return<div>
+							 <table style={tableStyle}>
+							 <thead style={thStyle}>
+									
+										 <tr>
+										 <td style={tdStyle}>Car</td><td style={tdStyle}>Version</td><td style={tdStyle}>Year</td>
+										 </tr>
+									 
+							 </thead>
+							 <tbody>
+								
+								{this.state.cars.map(Car => <tr>
+																<td style={tdStyle}>{Car.car}</td><td style={tdStyle}>{Car.version}</td><td style={tdStyle}>{Car.year}</td>
+															</tr> )}
+								
+							 </tbody>
+							 </table>
+							 <input type="button" value="update" onClick={this.UpdateCars.bind(this)}/>
+							</div>
+							
+					
+					}
+			
+			
+			
+			}
+	
+			
+			ReactDOM.render(<StateManageExercise/>,document.getElementById("root"));
+	</script>
+</body>
+</html>

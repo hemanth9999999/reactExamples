@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>StateMangement</title>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+</head>
+<body>
+	<div id="root"></root>
+	<script type="text/babel">
+			class StateManagementEx extends React.Component{ 
+			
+				constructor(props){ 
+				super(props)
+				this.state={StateValues:["Springboot","Vertx","Flask"]}
+				
+				}
+				
+				updateState(){ 
+				
+				//alert("state is changing")
+				this.setState({StateValues:["Java","Python","Scala"]})
+				
+				
+				}
+				StateValues
+				render(){	
+					return <div>	
+							<h1>State management</h1>
+							<ul>
+							{this.state.StateValues.map(entities => <li>{entities}</li>)}
+							</ul>
+							<input type="button" value="update" onClick={this.updateState.bind(this)}/>
+						  </div>
+				}
+				
+				
+			}
+			ReactDOM.render(<StateManagementEx/>,document.getElementById("root"));
+	</script>
+</body>
+</html>
